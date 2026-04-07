@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name:       PB MEDIA ALL SEO
- * Plugin URI:        https://pb-media.pl/
+ * Plugin URI:        https://github.com/PB-MEDIA-Strony-Sklepy-Marketing/plugin-wordpress-privacy-policy-gdpr-manager-pl
  * Description:       Kompletny plugin SEO: meta tagi, OpenGraph, Schema JSON-LD, fizyczne sitemapy XML, robots.txt, llm.txt, bulk edit, import/export, SEO score analyzer i auto-generator OG image.
  * Version:           1.2.0
  * Requires at least: 6.6
  * Requires PHP:      8.2
- * Author:            PB MEDIA
- * Author URI:        https://pb-media.pl/
+ * Author:            PIOTROQ - PB MEDIA Studio
+ * Author URI:        https://pbmediaonline.pl/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       pb-media-all-seo
