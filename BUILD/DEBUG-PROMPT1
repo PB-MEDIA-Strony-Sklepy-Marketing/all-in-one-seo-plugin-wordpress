@@ -1,0 +1,49 @@
+W wygenerowanej wersji pluginu "PB MEDIA ALL SEO". Dalej jest ten sam problem błąd. Obydwie generowane pliki sitemapy wyświetlają się źle sformatowane. Prawidłowy format sitemap załączam w pliku "example-sitemapa.xml". Przeanalizuj go.
+
+Dodaj do:
+**Backend wp-admin w edycji konkretnej poszczególnej strony (post.php) dodaj do meta boxy "Meta Tagi SEO" nowe pole tekstowe pod "<label for="pb_seo_pageCustomMetaTagSEO"><strong>Add Custom Meta Tags SEO</strong></label>":
+
+1. Priorytet strony w sitemapie [$pagePrioritySitemap] - (inline dropdown menu z wyborem [1.0], [0.9], [0.8], [0.7], [0.6], [0.5], [0.4], [0.3], [0.2], [0.1], [0.0]).
+2. Częstotliwość dla strony w sitemapie [$pageChangeFreqSitemap] - (inline dropdown menu z wyborem [always], ,[hourly], [daily], [weekly], [monthly], [yearly], [never]).
+
+- Zapis do bazy danych i wyświetlanie w pętli w wygenerowanym pliku sitemap Sitemap XML — Strony "sitemapa.xml"
+
+*Szablon kodu "sitemapa.xml" zapętlony:
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>URL strony/wpisu [$get_site_url]</loc>
+    <lastmod>[$get_the_date] w formacie (2011-12-06T17:38:21+00:00)</lastmod>
+    <priority>[$pagePrioritySitemap]</priority>
+    <changefreq>[$pageChangeFreqSitemap]</changefreq>
+  </url>
+  <url>
+    <loc>URL strony/wpisu [$get_site_url]</loc>
+    <lastmod>[$get_the_date] w formacie (2011-12-06T17:38:21+00:00)</lastmod>
+    <priority>[$pagePrioritySitemap]</priority>
+    <changefreq>[$pageChangeFreqSitemap]</changefreq>
+  </url>
+  <url>
+    <loc>URL strony/wpisu [$get_site_url]</loc>
+    <lastmod>[$get_the_date] w formacie (2011-12-06T17:38:21+00:00)</lastmod>
+    <priority>[$pagePrioritySitemap]</priority>
+    <changefreq>[$pageChangeFreqSitemap]</changefreq>
+  </url>
+</urlset>
+
+**Sitemap XML — Obraz szablon kodu "sitemapa-image.xml" w pliku "example-sitemapa-image.xml":
+*Szablon kodu "sitemapa-image.xml" zapętlony o wszystkie zdjęcia z biblioteki WordPress:
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>[$wp_get_attachment_image_src]</loc>
+  </url>
+  <url>
+    <loc>[$wp_get_attachment_image_src]</loc>
+  </url>
+  <url>
+    <loc>[$wp_get_attachment_image_src]</loc>
+  </url>
+</urlset>
+
+Wygeneruj całą poprawiony plugin jako paczkę w całości ze wtyczką gotową na produkcję do implementacji.

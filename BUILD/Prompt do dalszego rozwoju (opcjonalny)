@@ -1,0 +1,7 @@
+Jesteś ekspertem WordPress plugin developerem. Rozszerz plugin PB MEDIA ALL SEO o:
+1. Bulk edit SEO meta dla wielu postów jednocześnie
+2. Import/eksport ustawień SEO przez JSON
+3. Integrację z Google Search Console API (weryfikacja, submit sitemap)
+4. Analizę treści pod kątem SEO score (długość title/description, keyword density)
+5. Automatic OpenGraph image generation z featured image + overlay text
+Zachowaj wszystkie dotychczasowe wymagania: PHP 8.2+, WP 6.6+, security, DRY/SOLID.

@@ -1,0 +1,13 @@
+/* PB MEDIA ALL SEO — admin styles */
+.pb-seo-wrap { padding: 4px 0; }
+.pb-seo-wrap .pb-seo-row { margin: 0 0 14px; }
+.pb-seo-wrap .pb-seo-row label { display: block; margin-bottom: 4px; font-size: 13px; }
+.pb-seo-wrap .pb-seo-row input[type="text"],
+.pb-seo-wrap .pb-seo-row input[type="url"],
+.pb-seo-wrap .pb-seo-row select,
+.pb-seo-wrap .pb-seo-row textarea { width: 100%; box-sizing: border-box; }
+.pb-seo-wrap .pb-seo-row textarea.code { font-family: Consolas, Monaco, monospace; font-size: 12px; }
+.pb-seo-wrap .pb-seo-row .description { display: block; margin-top: 4px; color: #646970; font-size: 12px; }
+
+.pb-seo-settings .form-table th { width: 200px; }
+.pb-seo-settings code { background: #f0f0f1; padding: 2px 6px; border-radius: 3px; }

@@ -1,0 +1,84 @@
+Zrób plugin dla WordPress'a, który będzie odpowiedzialny za pozycjonowanie wszystkich post_type wykrytych w instalacji WordPress również oprócz tych domyślnych, także tych customowych. Wszystko głównie pod wyszukiwarkę Google i ich standardy dla jak najwyższych pozycji strony w wyszukiwarce Google. PHP 8.2+. Plugin ma być gotowy w całości do implementacji na produkcji na hostingu więc ma być gotowy w stanie produkcyjnym. Fetchuj i analizuj do analizy wszystkie podane URLe mają Ci one pomóc w uzyskaniu jak najlepszej jakości odpowiedzi. Wygeneruj całą paczkę w całości ze wtyczką gotową na produkcję do implementacji. Stosuj najlepsze praktyki WordPress Developer Resources: https://developer.wordpress.org/ . Nazwa pluginu: "PB MEDIA ALL SEO".
+
+**Backend wp-admin w edycji konkretnej poszczególnej strony (post.php) dodaj meta boxy "Meta Tagi SEO":
+1. Title SEO [$pageTitleSEO] - (inline pole tekstowe) "Wpisz tytuł dla tej strony SEO".
+2. Meta Description SEO [$pageDescriptionSEO] - (inline pole tekstowe) "Wpisz opis dla tej strony SEO".
+3. Meta Keywords SEO [$pageKeywordsSEO] - (inline pole tekstowe) "Wpisz słowa kluczowe po przecinku i ze spacją dla tej strony SEO".
+4. Meta Author SEO [$pageAuthorSEO] - (inline dropdown menu z wyborem użytkownika tej instalacji WordPress).
+5. Meta Canonical URL SEO [$pageCanonicalURLSEO] - (inline pole tekstowe) "Podaj cały kanoniczny adres URL strony lub pozostaw puste to zostanie użyty domyślny URL tej strony".
+6. Meta Tag Robots SEO [$pageRobotsSEO] - (inline dropdown menu z wyborem [index], [noindex], [follow], [nofollow], [noarchive], [nosnippet]).
+7. Add Custom Meta Tags SEO [$pageCustomMetaTagSEO] - (pole tekstowe textarea) "Wpisz kodem HTML dodatkowe niestandardowe Meta Tagi HTML SEO dla tej konkretnej strony (*Stosuj przycisk Enter jako separator między znacznikami <meta name="example" content="example" /> a nastepnym znacznikiem meta. Meta Tagi oddziel Enterem. Jeden Meta Tag per line."
+
+*Szablon kodu HTML Meta Tagów SEO:
+<title>[$pageTitleSEO], jeżeli pole puste [$the_title]</title>
+<meta name="description" content="[$pageDescriptionSEO], jeżeli puste [$the_excerpt]" />
+<meta name="keywords" content="[$pageKeywordsSEO]" />
+<meta name="author" content="[$pageAuthorSEO], jeżeli puste to [$the_author]" />
+<link rel="canonical" href="[$pageCanonicalURLSEO], jeżeli puste to [$get_page_link]" />
+<meta name="robots" content="[$pageRobotsSEO]" />
+<Wyświetlanie się pola tekstowego textarea całego [$pageCustomMetaTagSEO]>
+
+*Knowledge Meta Tags SEO URL Base: https://gist.github.com/piotroq/83702916f475595fdf10bc8605e95007
+
+- Zapis do bazy danych i wyświetlanie na frontendzie poszczególnej strony w strukturze w sekcji HEAD zaraz po znaczniku otwierającym <head>.
+
+**Backend wp-admin w edycji konkretnej poszczególnej strony (post.php) dodaj meta boxy "Tagi OpenGraph":
+1. OG:Title [$pageOGtitle] - (inline pole tekstowe) "Wpisz dla tej strony tytuł dla OpenGraph lub pozostaw to pole puste to zostanie użyty domyślny tytuł tej strony".
+2. OG:Description [$pageOGdescription] - (inline pole tekstowe) "Wpisz dla tej strony opis dla OpenGraph".
+3. OG:Image [$pageOGimage] - (inline pole tekstowe) "Podaj cały adres URL obrazka dla OpenGraph lub pozostaw to pole puste to zostanie użyty domyślny Obrazek wyróżniający tego posta (Featured image)".
+4. OG:Image:alt [$pageOGimagealt] - (inline pole tekstowe) "Wpisz dla tej strony opis dla OpenGraph obrazka lub pozostaw to pole puste to zostanie użyty domyślny opis obrazka dla tej strony z galerii WordPress".
+5. OG:Locale [$pageOGlocale] - "Zostanie użyty domyślny ustawiony WordPressowy język strony".
+6. OG:Type [$pageOGtype] - (inline dropdown menu z wyborem [website], [article], [blog], [product]).
+7. OG:URL [$pageOGurl] - (inline pole tekstowe) "Podaj cały adres URL strony lub pozostaw to pole puste to zostanie użyty domyślny URL tej strony".
+8. OG:site_name [$pageOGsitename] - (inline pole tekstowe) "Wpisz dla tej strony tytuł dla OpenGraph lub pozostaw to pole puste to zostanie użyty domyślny tytuł tej strony".
+9. Add Custom OpenGraph SEO [$pageOGCustomTag] - (pole tekstowe textarea) "Wpisz kodem HTML dodatkowe niestandardowe OpenGraph HTML SEO dla tej konkretnej strony (*Stosuj przycisk Enter jako separator między znacznikami <meta name="example" content="example" /> a nastepnym znacznikiem meta. Meta Tagi OpenGraph oddziel Enterem. Jeden Meta Tag OpenGraph per line."
+
+*Szablon kodu OpenGraph:
+<meta property="og:title" content="[$pageOGtitle], jeżeli pole puste [$the_title]" />
+<meta property="og:description" content="[$pageOGdescription], jeżeli puste [$the_excerpt]" />
+<meta property="og:image" content="[$pageOGimage], jeżeli pole puste [$get_the_post_thumbnail_url]" />
+<meta property="og:locale" content="[$pageOGlocale]" />
+<meta property="og:type" content="[$pageOGtype]" />
+<meta property="og:url" content="[$pageOGurl], jeżeli pole puste [$get_page_link]" />
+<meta property="og:site_name" content="[$pageOGsitename], jeżeli pole puste [$the_title]" />
+<Wyświetlanie się pola tekstowego textarea całego [$pageOGCustomTag]>
+
+*Knowledge OpenGraph URL Base: https://ogp.me/ | https://opengraphexamples.com/ | https://opengraphexamples.com/posts/open-graph-meta-tags/ | https://opengraphexamples.com/open-graph-debugger/
+
+- Zapis do bazy danych i wyświetlanie na frontendzie poszczególnej strony w strukturze w sekcji HEAD zaraz po znaczniku otwierającym <head> po meta tagach SEO strony.
+
+**Backend wp-admin w edycji konkretnej poszczególnej strony (post.php) dodaj meta boxy "Schema JSON SEO":
+1. Pole tekstowe gotowe do wklejenia całego kodu Schema JSON SEO dla poszczególnej strony z odpowiednią strukturą i walidacją kodu Schema JSON SEO. - https://schema.org/ | https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data?hl=pl
+
+- Zapis do bazy danych i wyświetlanie na frontendzie poszczególnej strony w strukturze w sekcji HEAD zaraz przed znacznikiem zamykającym </head>.
+
+**Backend wp-admin sekcja w sidebarze lewym menu o nazwie "PB MEDIA SEO":
+1. fb:app_id [$pageFBappid] - (inline pole tekstowe) "Wpisz dla tej całej instalacji WordPress domyślny fb:app_id".
+
+*Szablon kodu OpenGraph:
+<meta property="fb:app_id" content="[$pageFBappid]" />
+
+- Zapis do bazy danych i wyświetlanie na frontendzie poszczególnej strony w strukturze w sekcji HEAD zaraz po znaczniku otwierającym <head> po meta tagach SEO strony.
+
+**Backend wp-admin sekcja w sidebarze lewym menu o nazwie "PB MEDIA SEO":
+1. Automatycznie generowana Sitemapa.xml wszystkich Stron post_type całej instalacji WordPress globalnie tych domyślnych i tych customowych. Automatycznie odświeżana i uaktualniana wraz z dodaniem nowych treści do WordPressa. Przejdź do podglądu sitemapa.xml - (Przycisk - [Przykładowy URL z sitemapą - https://example.com/sitemapa.xml).
+2. Automatycznie generowana Sitemapa.xml wszystkich Zdjęć z Galerii (upload.php) domyślnej WordPressa całej instalacji WordPress globalnie. Automatycznie odświeżana i uaktualniana wraz z dodaniem nowych treści do WordPressa. Przejdź do podglądu sitemapa-image.xml - (Przycisk - [Przykładowy URL z sitemapą - https://example.com/sitemapa-image.xml).
+
+*Szablon wyglądu sitemapy na frontendzie drukowana pod URL sitemap:
+https://www.sitemaps.org/
+
+**Backend wp-admin sekcja w sidebarze lewym menu o nazwie "PB MEDIA SEO":
+1. Pole Textarea w które można wkleić tekst do automatycznie generowanego pliku "robots.txt" - Przykład: https://www.google.com/robots.txt
+
+*Szablon wyglądu pliku robots.txt:
+https://www.google.com/robots.txt
+
+- Zapis do bazy danych i wyświetlanie pod konkretnym URL na stronie jako wygenerowany plik TXT o nazwie "robots.txt" [$site_url/robots.txt].
+
+**Backend wp-admin sekcja w sidebarze lewym menu o nazwie "PB MEDIA SEO":
+1. Pole Textarea w które można wkleić tekst do pliku automatycznie generowanego pliku "llm.txt" - Przykład: https://llmstxt.org/
+
+*Szablon wyglądu pliku llm.txt:
+https://modelcontextprotocol.io/llms-full.txt
+
+- Zapis do bazy danych i wyświetlanie pod konkretnym URL na stronie jako wygenerowany plik TXT o nazwie "llm.txt" [$site_url/llm.txt].

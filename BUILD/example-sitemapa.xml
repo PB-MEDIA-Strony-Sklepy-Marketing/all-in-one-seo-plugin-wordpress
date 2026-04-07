@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>URL strony/wpisu [$get_site_url]</loc>
+    <lastmod>[$get_the_date] w formacie (2011-12-06T17:38:21+00:00)</lastmod>
+    <priority>[$pagePrioritySitemap]</priority>
+    <changefreq>[$pageChangeFreqSitemap]</changefreq>
+  </url>
+  <url>
+    <loc>URL strony/wpisu [$get_site_url]</loc>
+    <lastmod>[$get_the_date] w formacie (2011-12-06T17:38:21+00:00)</lastmod>
+    <priority>[$pagePrioritySitemap]</priority>
+    <changefreq>[$pageChangeFreqSitemap]</changefreq>
+  </url>
+  <url>
+    <loc>URL strony/wpisu [$get_site_url]</loc>
+    <lastmod>[$get_the_date] w formacie (2011-12-06T17:38:21+00:00)</lastmod>
+    <priority>[$pagePrioritySitemap]</priority>
+    <changefreq>[$pageChangeFreqSitemap]</changefreq>
+  </url>
+</urlset>

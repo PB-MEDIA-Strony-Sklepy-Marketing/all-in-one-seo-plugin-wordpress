@@ -1,0 +1,58 @@
+/* PB MEDIA ALL SEO — admin styles */
+.pb-seo-wrap { padding: 4px 0; }
+.pb-seo-wrap .pb-seo-row { margin: 0 0 14px; }
+.pb-seo-wrap .pb-seo-row label { display: block; margin-bottom: 4px; font-size: 13px; }
+.pb-seo-wrap .pb-seo-row input[type="text"],
+.pb-seo-wrap .pb-seo-row input[type="url"],
+.pb-seo-wrap .pb-seo-row select,
+.pb-seo-wrap .pb-seo-row textarea { width: 100%; box-sizing: border-box; }
+.pb-seo-wrap .pb-seo-row textarea.code { font-family: Consolas, Monaco, monospace; font-size: 12px; }
+.pb-seo-wrap .pb-seo-row .description { display: block; margin-top: 4px; color: #646970; font-size: 12px; }
+
+.pb-seo-settings .form-table th { width: 200px; }
+.pb-seo-settings code,
+.pb-seo-bulk code { background: #f0f0f1; padding: 2px 6px; border-radius: 3px; }
+
+/* ----- SEO Analyzer ----- */
+#pb-seo-analyzer .pb-seo-score-wrap {
+	display: flex; align-items: center; gap: 14px; margin-bottom: 10px;
+}
+#pb-seo-analyzer .pb-seo-score-circle {
+	width: 64px; height: 64px; border-radius: 50%;
+	display: flex; align-items: center; justify-content: center;
+	font-weight: 700; font-size: 14px; color: #fff;
+	background: #999;
+}
+#pb-seo-analyzer .pb-seo-score-circle .pb-seo-score-num { font-size: 20px; }
+#pb-seo-analyzer .pb-seo-score-circle[data-score="0"],
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="1"],
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="2"],
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="3"],
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="4"] { background: #d63638; }
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="5"],
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="6"] { background: #dba617; }
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="7"],
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="8"] { background: #2271b1; }
+#pb-seo-analyzer .pb-seo-score-circle[data-score^="9"],
+#pb-seo-analyzer .pb-seo-score-circle[data-score="100"] { background: #00a32a; }
+
+#pb-seo-analyzer .pb-seo-score-label { font-weight: 600; font-size: 14px; }
+#pb-seo-analyzer .pb-seo-checks { margin: 10px 0 0; padding: 0; list-style: none; }
+#pb-seo-analyzer .pb-seo-check {
+	display: flex; align-items: flex-start; gap: 8px;
+	padding: 6px 0; border-top: 1px solid #f0f0f1; font-size: 12px;
+}
+#pb-seo-analyzer .pb-seo-check-icon {
+	display: inline-block; width: 12px; height: 12px; border-radius: 50%;
+	flex-shrink: 0; margin-top: 3px;
+}
+#pb-seo-analyzer .pb-seo-check--good .pb-seo-check-icon { background: #00a32a; }
+#pb-seo-analyzer .pb-seo-check--warn .pb-seo-check-icon { background: #dba617; }
+#pb-seo-analyzer .pb-seo-check--bad  .pb-seo-check-icon { background: #d63638; }
+
+/* ----- Bulk edit ----- */
+.pb-seo-bulk .form-table th { width: 200px; }
+.pb-seo-bulk table.wp-list-table { margin-top: 12px; }
+
+/* ----- OG image meta box ----- */
+.pb-seo-og-gen img { display: block; }

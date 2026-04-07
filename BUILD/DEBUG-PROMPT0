@@ -1,0 +1,24 @@
+Popraw znalezione bugi błędy w tym pluginie "PB MEDIA ALL SEO":
+
+1. Sitemap XML — Strony:
+Wygenerowany plik sitemapy stron jest nieodpowiednio sformatowany jak na screenie. Przykład użycia: https://gmgarden.pl/sitemapa.xml
+Prawidłowe formaty generowanej sitemapy to:
+- https://www.sitemaps.org/protocol.html
+- https://gist.github.com/piotroq/f96ce2fe2cb5aef37c039d3c5e586db4#file-sitemap-xml
+- https://serpstat.com/blog/how-to-create-an-xml-image-sitemap/
+
+2. Sitemap XML — Obrazy:
+Wygenerowany plik sitemapy zdjęć jest nieodpowiednio sformatowany jak na screenie. Przykład użycia: https://gmgarden.pl/sitemapa-image.xml
+Prawidłowe formaty generowanej sitemapy to:
+- https://www.sitemaps.org/protocol.html
+- https://gist.github.com/piotroq/f96ce2fe2cb5aef37c039d3c5e586db4#file-sitemap-xml
+- https://serpstat.com/blog/how-to-create-an-xml-image-sitemap/
+
+Jesteś ekspertem WordPress plugin developerem. Rozszerz plugin PB MEDIA ALL SEO o:
+1. Bulk edit SEO meta dla wielu postów jednocześnie
+2. Import/eksport ustawień SEO przez JSON
+3. Analizę treści pod kątem SEO score (długość title/description, keyword density)
+4. Automatic OpenGraph image generation z featured image + overlay text
+Zachowaj wszystkie dotychczasowe wymagania: PHP 8.2+, WP 6.6+, security, DRY/SOLID.
+
+Wygeneruj wszystkie poprawione pliki w całości z poprawionymi błędami oraz rozszerzeniami do pobrania w całości. Wszystko ma być gotowe w postaci produkcyjnej do implementacji na serwer. Zrób z tego paczkę archiwum ZIP .zip do pobrania z wszystkimi plikami pluginu.
