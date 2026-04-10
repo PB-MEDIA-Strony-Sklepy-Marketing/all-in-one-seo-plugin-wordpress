@@ -4,7 +4,7 @@ Tags: seo, opengraph, schema, sitemap, robots, llms, bulk-edit
 Requires at least: 6.6
 Tested up to: 6.7
 Requires PHP: 8.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,10 @@ Funkcje:
 * fb:app_id globalny
 
 == Changelog ==
+
+= 1.2.1 =
+* CRITICAL FIX: Usunięto zagnieżdżony <form> z meta boxa "Auto OG Image" — powodował utratę danych meta boxów i błędne przekierowanie po zapisie wpisu. Nested forms wewnątrz edytora WP są nielegalne w HTML i powodują że przeglądarka obcina pola formularza.
+* OG Image generation teraz trigggerowane przez GET link z nonce zamiast zagnieżdżonego form POST.
 
 = 1.2.0 =
 * CRITICAL FIX: Sitemapy generowane jako fizyczne pliki XML w document root, serwowane bezpośrednio przez serwer www. Eliminuje problem Content-Type: text/html powodowany przez inne pluginy/cache.

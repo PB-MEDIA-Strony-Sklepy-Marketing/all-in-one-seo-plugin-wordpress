@@ -76,20 +76,30 @@ final class OG_Image {
 				<p>
 					<?php esc_html_e( 'Ustaw obrazek wyróżniający (Featured Image), aby wygenerować OG image.', 'pb-media-all-seo' ); ?>
 				</p>
-			<?php else : ?>
-				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-					<?php wp_nonce_field( self::NONCE_ACTION ); ?>
-					<input type="hidden" name="action" value="pb_seo_og_generate" />
-					<input type="hidden" name="post_id" value="<?php echo esc_attr( (string) $post->ID ); ?>" />
-					<p>
-						<label for="pb_seo_og_overlay"><?php esc_html_e( 'Tekst nakładki:', 'pb-media-all-seo' ); ?></label>
-						<input type="text" id="pb_seo_og_overlay" name="overlay" class="widefat"
-							value="<?php echo esc_attr( get_the_title( $post ) ); ?>" />
-					</p>
-					<?php submit_button( __( 'Generuj OG Image', 'pb-media-all-seo' ), 'secondary', 'submit', false ); ?>
-				</form>
+			<?php else :
+					// IMPORTANT: We must NOT render a <form> here because this meta box lives
+					// inside the post editor's main <form id="post">. Nested forms are illegal
+					// in HTML and break saving of ALL meta box fields.
+					// Instead, use a GET link with nonce. The overlay text defaults to the
+					// post title; the user can customize it via the OG fields above.
+					$gen_url = wp_nonce_url(
+						add_query_arg(
+							[
+								'action'  => 'pb_seo_og_generate',
+								'post_id' => $post->ID,
+							],
+							admin_url( 'admin-post.php' )
+						),
+						self::NONCE_ACTION
+					);
+				?>
+				<p>
+					<a href="<?php echo esc_url( $gen_url ); ?>" class="button button-secondary">
+						<?php esc_html_e( 'Generuj OG Image', 'pb-media-all-seo' ); ?>
+					</a>
+				</p>
 				<p class="description">
-					<?php esc_html_e( 'Wygeneruje obraz 1200×630 z featured image + nakładką tekstową i ustawi go jako og:image.', 'pb-media-all-seo' ); ?>
+					<?php esc_html_e( 'Wygeneruje obraz 1200×630 z featured image + tytułem posta i ustawi go jako og:image. Najpierw zapisz wpis, potem kliknij przycisk.', 'pb-media-all-seo' ); ?>
 				</p>
 			<?php endif; ?>
 		</div>
@@ -97,13 +107,18 @@ final class OG_Image {
 	}
 
 	public function handle_generate(): void {
-		$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+		// Now triggered via GET link (not a form POST) to avoid nested forms.
+		$post_id = isset( $_GET['post_id'] ) ? absint( $_GET['post_id'] ) : 0;
+		if ( 0 === $post_id ) {
+			$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+		}
 		if ( ! $post_id || ! current_user_can( 'edit_post', $post_id ) ) {
 			wp_die( esc_html__( 'Brak uprawnień.', 'pb-media-all-seo' ), 403 );
 		}
 		check_admin_referer( self::NONCE_ACTION );
 
-		$overlay = isset( $_POST['overlay'] ) ? sanitize_text_field( wp_unslash( (string) $_POST['overlay'] ) ) : '';
+		// Use the saved post title (or custom OG title if set) as overlay text.
+		$overlay = (string) get_post_meta( $post_id, PB_MEDIA_ALL_SEO_META_PREFIX . 'pageOGtitle', true );
 		if ( '' === $overlay ) {
 			$overlay = (string) get_the_title( $post_id );
 		}

@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name:       PB MEDIA ALL SEO
- * Plugin URI:        https://github.com/PB-MEDIA-Strony-Sklepy-Marketing/plugin-wordpress-privacy-policy-gdpr-manager-pl
+ * Plugin URI:        https://pb-media.pl/
  * Description:       Kompletny plugin SEO: meta tagi, OpenGraph, Schema JSON-LD, fizyczne sitemapy XML, robots.txt, llm.txt, bulk edit, import/export, SEO score analyzer i auto-generator OG image.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Requires at least: 6.6
  * Requires PHP:      8.2
- * Author:            PIOTROQ - PB MEDIA Studio
- * Author URI:        https://pbmediaonline.pl/
+ * Author:            PB MEDIA
+ * Author URI:        https://pb-media.pl/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       pb-media-all-seo
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PB_MEDIA_ALL_SEO_VERSION', '1.2.0' );
+define( 'PB_MEDIA_ALL_SEO_VERSION', '1.2.1' );
 define( 'PB_MEDIA_ALL_SEO_FILE', __FILE__ );
 define( 'PB_MEDIA_ALL_SEO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PB_MEDIA_ALL_SEO_URL', plugin_dir_url( __FILE__ ) );
